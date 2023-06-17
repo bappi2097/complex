@@ -13,3 +13,8 @@ after_success:
   - docker build -t bappi2097/fibonacci-worker ./worker
   - docker build -t bappi2097/fibonacci-server ./server
   - docker build -t bappi2097/fibonacci-client ./client
+  - echo "$DOCKER_PASSWORD" | docker loging -u "$DOCKER_ID" --password-stdin
+  - docker push bappi2097/fibonacci-nginx
+  - docker push bappi2097/fibonacci-worker
+  - docker push bappi2097/fibonacci-server
+  - docker push bappi2097/fibonacci-client
